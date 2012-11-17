@@ -34,18 +34,18 @@ function myGreen()                     {
 	alert("green on click");
 	
 }
+function addBlueClick() {
+	var blue = document.getElementById("blue");
+	blue.addEventListener("click", myBlue, true);
+}
 function addOrangeClick() {
 	var orange = document.getElementById("orange");
 	orange.addEventListener("click", myOrange, true);
 }
+//Bind Click Event Listeners to elements
 function addGreenClick() {
 	var green = document.getElementById("green");
-	green.addEventListener("click", myGreen, true);
-}
-//Bind Click Event Listeners to elements
-function addBlueClick() {
-	var blue = document.getElementById("blue");
-	blue.addEventListener("click", myBlue, false);
+	green.addEventListener("click", myGreen, false);
 }
 //Bind Click Event Listeners to page loading event
 window.addEventListener("load", addBlueClick, false);

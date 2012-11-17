@@ -8,9 +8,11 @@ var customerType = document.getElementById('type').value;
 // var discountPercent = 
 // document.getElementById('discount_percent').valueAsNumber;
 
-//calculate discount amount and discount price	
+//call calculate discount amount and discount price	
+function discAmountCalc(listPrice, discountPercent){
 var discount = listPrice * discountPercent * .01;
-
+return discount
+}
 var discountPrice = listPrice - discount;
 
 //set output in currency format (sort of)
@@ -22,7 +24,8 @@ document.getElementById('discount').value = discount;
 discountPrice = '$'+discountPrice.toFixed(2);
 document.getElementById('discount_price').value = discountPrice;
 
-//calculate discount percent
+//call calculate discount percent
+function discPercCalc (listPrice, customerType) {
 if (customerType == "R")  {
 	if (listPrice < 100)
 		discountPercent = 0;
@@ -38,7 +41,16 @@ if (customerType == "R")  {
 }
 
 discountPercent = parseFloat(discountPercent);
-
-//calculate discount amount and discount price
+return discountPercent;
 }
-// end calculate
+//calculate discount amount and discount price
+}// end calculate
+
+//calculate discount percent function
+var discountPercent = discPercCalc(listPrice, customerType);
+
+//calculate discount amount function
+var discount = discAmountCalc(listPrice, discountPercent);
+
+//calculate discount price function
+var discountPrice =discPriceCalc(listPrice, discount);
